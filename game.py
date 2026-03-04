@@ -112,6 +112,27 @@ def game_over_screen():
     screen.clear()
     screen.fill('black')
     screen.draw.text('GAME OVER',(CENTER_X - 150, CENTER_Y - 50),fontsize = 60,color = 'blue')
+    screen.draw.text(f' final score = {score}',(CENTER_X - 150,CENTER_Y), fontsize = 45, color = 'blue')
+    screen.draw.text('click space to play again',(CENTER_X - 150,CENTER_Y + 50),fontsize = 45)
+    if keyboard.SPACE:
+        restart_game()
+
+def restart_game():
+    global score,lives,enemies,bullets
+
+
+    score = 0
+    lives = 3
+    bullets = []
+    enemies = []
+    for i in range(8):
+        enemy = Actor('enemy')
+        enemy.x = random.randint(0,WIDTH - 80)
+        enemy.y = random.randint(-100,0)
+        enemies.append(enemy)
+
+
+
 
 
     
